@@ -8,14 +8,14 @@ import Iconify from '../components/Iconify';
 // sections
 import {
   AppTasks,
-  AppNewsUpdate,
+  // AppNewsUpdate,
   AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
+  // AppCurrentVisits,
+  // AppWebsiteVisits,
   AppTrafficBySite,
   AppWidgetSummary,
   AppCurrentSubject,
-  AppConversionRates,
+  // AppConversionRates,
 } from '../sections/@dashboard/app';
 import Typewriter from 'typewriter-effect';
 

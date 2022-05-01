@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import { Box, Card, Paper, Typography, CardHeader, CardContent } from '@mui/material';
 // utils
-import { fShortenNumber } from '../../../utils/formatNumber';
+// import { fShortenNumber } from '../../../utils/formatNumber';
 
 // ----------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ export default function AppTrafficBySite({ title, subheader, list, ...other }) {
         >
           {list.map((site) => (
             <Paper key={site.name} variant="outlined" sx={{ py: 2.5, textAlign: 'center' }}>
-              <a href={site.value} target="_blank">
+              <a href={site.value} target="_blank" rel="noreferrer">
                 <Box sx={{ mb: 0.5 }}>{site.icon}</Box>
 
                 {/* <Typography variant="h6">{fShortenNumber(site.value)}</Typography> */}

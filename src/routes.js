@@ -5,9 +5,9 @@ import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
 import Blog from './pages/Blog';
 import Education from './pages/Education';
-import Login from './pages/Login';
+// import Login from './pages/Login';
 import NotFound from './pages/Page404';
-import Register from './pages/Register';
+// import Register from './pages/Register';
 import Products from './pages/Products';
 import About from './pages/About';
 
