@@ -12,6 +12,8 @@ import useResponsive from '../../hooks/useResponsive';
 import Logo from '../../components/Logo';
 import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
+import Iconify from '../../components/Iconify';
+
 //
 import navConfig from './NavConfig';
 
@@ -86,7 +88,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
       <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
         <Stack alignItems="center" spacing={3} sx={{ pt: 5, borderRadius: 2, position: 'relative' }}>
-          <Box
+          {/* <Box
             component="img"
             src="/static/illustrations/illustration_avatar.png"
             sx={{ width: 100, position: 'absolute', top: -50 }}
@@ -99,10 +101,9 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               From only $69
             </Typography>
-          </Box>
-
-          <Button href="https://material-ui.com/store/items/minimal-dashboard/" target="_blank" variant="contained">
-            Upgrade to Pro
+          </Box> */}
+          <Button href="https://buy.stripe.com/28o2bn0fE6l4cNi5kk" target="_blank" variant="contained">
+            Buy me <Iconify icon={'la:beer'} width={24} height={24} />
           </Button>
         </Stack>
       </Box>

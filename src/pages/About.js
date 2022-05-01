@@ -17,20 +17,39 @@ import {
   AppCurrentSubject,
   AppConversionRates,
 } from '../sections/@dashboard/app';
+import Typewriter from 'typewriter-effect';
 
 // ----------------------------------------------------------------------
 
-export default function DashboardApp() {
+export default function About() {
   const theme = useTheme();
 
   return (
-    <Page title="Dashboard">
+    <Page title="About">
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
           Hi, Welcome back
         </Typography>
+        
+        <Typewriter
+          onInit={(typewriter) => {
+            typewriter.typeString('My name is Mukul.')
+              .pauseFor(2500)
+              .deleteAll()
+              .start();
+            
+            typewriter.typeString('I am a final year Computer Engineering student @ UNSW.')
+              .pauseFor(2500)
+              .deleteAll()
+              .start();
 
-        <Grid container spacing={3}>
+            typewriter.typeString('If you would like to get in touch contact me using the Contact section of this website :)')
+              .pauseFor(2500)
+              .start();
+          }}
+        />
+
+        <Grid container spacing={3} my={1}>
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
           </Grid>
@@ -47,7 +66,7 @@ export default function DashboardApp() {
             <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
               title="Website Visits"
               subheader="(+43%) than last year"
@@ -85,9 +104,9 @@ export default function DashboardApp() {
                 },
               ]}
             />
-          </Grid>
+          </Grid> */}
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Current Visits"
               chartData={[
@@ -103,9 +122,9 @@ export default function DashboardApp() {
                 theme.palette.chart.yellow[0],
               ]}
             />
-          </Grid>
+          </Grid> */}
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
               title="Conversion Rates"
               subheader="(+43%) than last year"
@@ -122,21 +141,45 @@ export default function DashboardApp() {
                 { label: 'United Kingdom', value: 1380 },
               ]}
             />
+          </Grid> */}
+
+          <Grid item xs={12} md={6} lg={4}>
+            <AppOrderTimeline
+              title="Life Timeline"
+              list={[...Array(5)].map((_, index) => ({
+                id: faker.datatype.uuid(),
+                title: [
+                  'Legend will FINISH Uni',
+                  'Legend started Uni',
+                  'Legend FINISHED School',
+                  'Legend had to go to School',
+                  'Legend was born',
+                ][index],
+                type: `order${index + 1}`,
+                time: [
+                  '2022-08-24T00:00:00.000',
+                  '2018-07-23T00:00:00.000',
+                  '2018-06-01T00:00:00.000',
+                  '2003-04-01T00:00:00.000',
+                  '2000-08-01T00:00:00.000',
+                ][index],
+              }))}
+            />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
             <AppCurrentSubject
-              title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
+              title="Language Proficiency"
+              chartLabels={['Python', 'C', 'C++', 'VHDL', 'ReactJs', 'Java', 'Go', 'SQL']}
               chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
+                { name: 'Skill level', data: [90, 70, 50, 50, 70, 90, 40, 70] },
+                // { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
+                // { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
               ]}
               chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
           </Grid>
-
+{/* 
           <Grid item xs={12} md={6} lg={8}>
             <AppNewsUpdate
               title="News Update"
@@ -148,49 +191,36 @@ export default function DashboardApp() {
                 postedAt: faker.date.recent(),
               }))}
             />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppOrderTimeline
-              title="Order Timeline"
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
-                ][index],
-                type: `order${index + 1}`,
-                time: faker.date.past(),
-              }))}
-            />
-          </Grid>
+          </Grid> */}
 
           <Grid item xs={12} md={6} lg={4}>
             <AppTrafficBySite
-              title="Traffic by Site"
+              title="Find Me"
               list={[
                 {
-                  name: 'FaceBook',
-                  value: 323234,
-                  icon: <Iconify icon={'eva:facebook-fill'} color="#1877F2" width={32} height={32} />,
+                  name: 'GitHub',
+                  value: 'https://www.github.com/mukulRajSharma',
+                  icon: <Iconify icon={'eva:github-fill'} color="#24292F" width={32} height={32} />,
                 },
                 {
-                  name: 'Google',
-                  value: 341212,
-                  icon: <Iconify icon={'eva:google-fill'} color="#DF3E30" width={32} height={32} />,
-                },
-                {
-                  name: 'Linkedin',
-                  value: 411213,
+                  name: 'LinkedIn',
+                  value: 'https://www.linkedin.com/in/mukul-raj-sharma',
                   icon: <Iconify icon={'eva:linkedin-fill'} color="#006097" width={32} height={32} />,
                 },
                 {
-                  name: 'Twitter',
-                  value: 443232,
-                  icon: <Iconify icon={'eva:twitter-fill'} color="#1C9CEA" width={32} height={32} />,
+                  name: 'HackerRank',
+                  value: 'https://www.hackerrank.com/mukul02015',
+                  icon: <Iconify icon={'cib-hackerrank'} color="#2BBE5E" width={32} height={32} />,
+                },
+                {
+                  name: 'Chess',
+                  value: 'https://www.chess.com/member/jerry8tom',
+                  icon: <Iconify icon={'fa-solid:chess-pawn'} color="#24292F" width={32} height={32} />,
+                },
+                {
+                  name: 'Telegram',
+                  value: 'https://t.me/mickeyM0us',
+                  icon: <Iconify icon={'fa-telegram'} color="#0E8AC7" width={32} height={32} />,
                 },
               ]}
             />
@@ -198,13 +228,13 @@ export default function DashboardApp() {
 
           <Grid item xs={12} md={6} lg={8}>
             <AppTasks
-              title="Tasks"
+              title="Check list for no reason"
               list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
+                { id: '1', label: 'Study' },
+                { id: '2', label: 'Work' },
+                { id: '3', label: 'Wash clothes' },
+                { id: '4', label: 'Groceries' },
+                { id: '5', label: 'Eat' },
               ]}
             />
           </Grid>
