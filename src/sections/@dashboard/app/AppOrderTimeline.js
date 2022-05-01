@@ -4,6 +4,8 @@ import { Card, Typography, CardHeader, CardContent } from '@mui/material';
 import { Timeline, TimelineDot, TimelineItem, TimelineContent, TimelineSeparator, TimelineConnector } from '@mui/lab';
 // utils
 import { fDateTime } from '../../../utils/formatTime';
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
+import SchoolIcon from '@mui/icons-material/School';
 
 // ----------------------------------------------------------------------
 
@@ -47,19 +49,24 @@ OrderItem.propTypes = {
 };
 
 function OrderItem({ item, isLast }) {
-  const { type, title, time } = item;
+  const { type, title, time, icon } = item;
   return (
     <TimelineItem>
       <TimelineSeparator>
         <TimelineDot
           color={
-            (type === 'order1' && 'primary') ||
-            (type === 'order2' && 'success') ||
-            (type === 'order3' && 'info') ||
-            (type === 'order4' && 'warning') ||
+            type ||
             'error'
           }
-        />
+        >
+          {
+            icon === 'start' && <PlayCircleFilledIcon />
+          }
+          {
+            icon === 'hat' && <SchoolIcon />
+          }
+          
+        </TimelineDot>
         {isLast ? null : <TimelineConnector />}
       </TimelineSeparator>
 

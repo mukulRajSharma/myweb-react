@@ -7,7 +7,7 @@ import Page from '../components/Page';
 import Iconify from '../components/Iconify';
 // sections
 import {
-  AppTasks,
+  // AppTasks,
   // AppNewsUpdate,
   AppOrderTimeline,
   // AppCurrentVisits,
@@ -155,7 +155,13 @@ export default function About() {
                   'Legend had to go to School',
                   'Legend was born',
                 ][index],
-                type: `order${index + 1}`,
+                type: [
+                  `secondary`,
+                  `success`,
+                  `secondary`,
+                  `secondary`,
+                  `secondary`,
+                ][index],
                 time: [
                   '2022-08-24T00:00:00.000',
                   '2018-07-23T00:00:00.000',
@@ -163,6 +169,10 @@ export default function About() {
                   '2003-04-01T00:00:00.000',
                   '2000-08-01T00:00:00.000',
                 ][index],
+                icon: [
+                  'hat',
+                  'start',
+                ][index]
               }))}
             />
           </Grid>
@@ -226,7 +236,7 @@ export default function About() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={8}>
+          {/* <Grid item xs={12} md={6} lg={8}>
             <AppTasks
               title="Check list for no reason"
               list={[
@@ -237,7 +247,7 @@ export default function About() {
                 { id: '5', label: 'Eat' },
               ]}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </Page>
