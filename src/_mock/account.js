@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 
 const account = {
-  displayName: 'Mukul Raj Sharma',
+  displayName: 'Mukul Sharma',
   email: 'mukulsharma@mail.com',
   photoURL: '/static/mock-images/avatars/my_face.jpeg',
 };

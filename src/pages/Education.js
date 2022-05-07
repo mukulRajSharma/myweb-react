@@ -17,7 +17,6 @@ import {
   Typography,
   TableContainer,
   TablePagination,
-  Grid,
 } from '@mui/material';
 // components
 import Page from '../components/Page';
@@ -28,8 +27,6 @@ import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from '../sections/@dashboard/user';
 // mock
 import USERLIST from '../_mock/user';
-import TagBox from '../components/myComponents/TagBox.tsx';
-import Select from 'react-select';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
@@ -141,11 +138,11 @@ export default function Education() {
           <Typography variant="h4" gutterBottom>
             Education
           </Typography>
-          {/* <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
+          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
-          </Button> */}
+          </Button>
         </Stack>
-{/* 
+
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
 
@@ -230,12 +227,7 @@ export default function Education() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-        </Card> */}
-        <Grid container spacing = {3} my={1}>
-          <Grid item xs={12} md={6}>
-            <TagBox/>
-          </Grid>
-        </Grid>
+        </Card>
       </Container>
     </Page>
   );

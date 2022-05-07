@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 
 import CreatableSelect from 'react-select/creatable';
 import { TypeOption } from './docs/data';
-import { ActionMeta, MultiValueGenericProps, OptionProps } from 'react-select';
-import Select, { components } from "react-select";
+import { MultiValueGenericProps, OptionProps } from 'react-select';
+import { components } from "react-select";
 import Icon from '../Iconify';
-import { borderColor } from '@mui/system';
-import { boolean } from 'yup';
 import { Container,Typography } from '@mui/material';
 
 const defaultOptions = [

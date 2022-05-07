@@ -37,6 +37,11 @@ const navConfig = [
   //   icon: getIcon('eva:person-add-fill'),
   // },
   {
+    title: 'gorilla',
+    path: '/dashboard/gorilla',
+    icon: <Iconify icon="noto:gorilla" width={22} height={22} color="white" hFlip={true} />,
+  },
+  {
     title: 'Not found',
     path: '/404',
     icon: getIcon('eva:alert-triangle-fill'),
