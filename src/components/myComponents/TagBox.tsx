@@ -22,6 +22,7 @@ interface State {
   readonly isLoading: boolean;
   readonly invalidInput: boolean;
   readonly options: readonly TypeOption[];
+  readonly selectedOptions: TypeOption[];
 }
 
 
@@ -52,10 +53,16 @@ export default class TagBox extends Component<{}, State> {
     isLoading: false,
     invalidInput: false,
     options: defaultOptions,
+    selectedOptions: []
   };
 
-  handleInputChange = (inputValue: string) => {
+  handleInputChange = (inputValue: TypeOption[]) => {
     this.setState({invalidInput: false})
+    console.log("CHANGE")
+    for (var i=0; i < inputValue.length; i++){
+      console.log(inputValue[i].label)
+    }
+    // this.setState({selectedOptions: [createOption(inputValue)]})
   }
 
   handleCreate = (inputValue: string) => {
@@ -81,7 +88,7 @@ export default class TagBox extends Component<{}, State> {
   };
 
   render() {
-    const { isLoading, invalidInput, options } = this.state;
+    const { isLoading, invalidInput, options, selectedOptions } = this.state;
 
     return (
       <Container>
@@ -121,9 +128,10 @@ export default class TagBox extends Component<{}, State> {
             isMulti
             isLoading={isLoading}
             // closeMenuOnSelect={false}
-            options={options}  
-            onInputChange={this.handleInputChange}
+            options={options}
+            onChange={this.handleInputChange}
             onCreateOption={this.handleCreate}
+            // hideSelectedOptions={false}
             placeholder="Search"
 
         />
@@ -133,6 +141,9 @@ export default class TagBox extends Component<{}, State> {
               <Icon icon="bi:exclamation-diamond-fill" color="red" sx={1} height='15px'/> Only Alphabetical Tags Allowed!
           </Typography>
         }
+        <Typography>
+          {selectedOptions[0] && selectedOptions[0].label}
+        </Typography>
 
       </Container>
 
