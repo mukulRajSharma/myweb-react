@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import CreatableSelect from 'react-select/creatable';
 import { TypeOption } from './docs/data';
-import { MultiValueGenericProps, OptionProps } from 'react-select';
+import { MultiValueGenericProps, OptionProps,SelectInstance } from 'react-select';
 import { components } from "react-select";
 import Icon from '../Iconify';
 import { Container,Typography } from '@mui/material';
+import makeAnimated from 'react-select/animated';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const defaultOptions = [
   { value: "legal", label: "LEGAL"},
@@ -47,6 +50,51 @@ const MultiValueLabel = (props: MultiValueGenericProps<TypeOption>) => {
     // {/* </Tooltip> */}
   );
 };
+
+const Menu = (props) => {
+  return (
+    <Fragment>
+      <components.Menu {...props}>
+        <div>
+          {props.selectProps.fetchingData ? (
+            <span className="fetching">Fetching data...</span>
+          ) : (
+            <div>{props.children}</div>
+          )}
+          <hr
+              style={{
+                  color: '#F8F9FA',
+                  // backgroundColor: 'F8F9FA',
+                  height: 1,
+                  width: '95%',
+                  margin: 'auto'
+              }}
+          />
+          <div style={{width: '95%',marginTop:'-2%', marginLeft:'2.5%'}}>
+            <TextField 
+              id="standard-basic" 
+              label="Create New" 
+              variant="standard" 
+              InputProps={{ disableUnderline: true }}
+              // onClick={{props.focus()}}
+              focused={false}
+            />
+            {/* <Button
+              className={"change-data"}
+              // onClick={console.log("CLICKEDD")}
+              marginTop="auto"
+            >
+              Add
+            </Button> */}
+          </div>
+          
+        </div>
+      </components.Menu>
+    </Fragment>
+  );
+};
+
+
 export default class TagBox extends Component<{}, State> {
   
   state: State = {
@@ -56,7 +104,7 @@ export default class TagBox extends Component<{}, State> {
     selectedOptions: []
   };
 
-  handleInputChange = (inputValue: TypeOption[]) => {
+  handleChange = (inputValue: TypeOption[]) => {
     this.setState({invalidInput: false})
     console.log("CHANGE")
     for (var i=0; i < inputValue.length; i++){
@@ -70,7 +118,6 @@ export default class TagBox extends Component<{}, State> {
     setTimeout(() => {
       if (/^[a-zA-Z ]*$/.test(inputValue)) {
         const newOption = createOption(inputValue.toUpperCase());
-        console.log(newOption);
         this.setState({
           isLoading: false,
           invalidInput: false,
@@ -87,6 +134,14 @@ export default class TagBox extends Component<{}, State> {
     }, 1000);
   };
 
+  creatableRef?: SelectInstance<TypeOption> | null;
+  focusCreatable = () => {
+    console.log(this.creatableRef);
+    this.creatableRef!.focus();
+  };
+  blurCreatable = () => {
+    this.creatableRef!.blur();
+  };
   render() {
     const { isLoading, invalidInput, options, selectedOptions } = this.state;
 
@@ -94,7 +149,7 @@ export default class TagBox extends Component<{}, State> {
       <Container>
         <CreatableSelect
 
-            components={{ MultiValueLabel, Option }}
+            components={{ MultiValueLabel, Option, Menu }}
             styles={{
               multiValue: (base) => ({
                 ...base,
@@ -121,7 +176,10 @@ export default class TagBox extends Component<{}, State> {
                 padding: 2,
               })
             }}
-
+            
+            ref={(ref) => {
+              this.creatableRef = ref;
+            }}
 
             isClearable
             isSearchable      
@@ -129,7 +187,8 @@ export default class TagBox extends Component<{}, State> {
             isLoading={isLoading}
             // closeMenuOnSelect={false}
             options={options}
-            onChange={this.handleInputChange}
+            onChange={this.handleChange}
+            autoFocus={false}
             onCreateOption={this.handleCreate}
             // hideSelectedOptions={false}
             placeholder="Search"

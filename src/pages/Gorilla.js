@@ -8,6 +8,7 @@ import {
 // components
 import Page from '../components/Page';
 import TagBox from '../components/myComponents/TagBox.tsx';
+import DropdownInput from '../components/myComponents/semanticUi/Dropdown/DropdownInput';
 // ----------------------------------------------------------------------
 
 
@@ -24,6 +25,9 @@ export default function Gorilla() {
         <Grid container spacing = {3} my={1}>
           <Grid item xs={12} md={6}>
             <TagBox/>
+          </Grid>
+          <Grid item xs={12} md={6}>
+              <DropdownInput/>
           </Grid>
         </Grid>
       </Container>
