@@ -6,9 +6,7 @@ import { MultiValueGenericProps, OptionProps,SelectInstance } from 'react-select
 import { components } from "react-select";
 import Icon from '../Iconify';
 import { Container,Typography } from '@mui/material';
-import makeAnimated from 'react-select/animated';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 
 const defaultOptions = [
   { value: "legal", label: "LEGAL"},
