@@ -45,6 +45,15 @@ export default function MultipleSelect() {
                     }
                 />
                 <FormControlLabel
+                    label="Create New"
+                    control={
+                        <Checkbox
+                        checked={true}
+                        color="success"
+                        />
+                    }
+                />
+                <FormControlLabel
                     label="Delete on arrow click"
                     control={
                         <Checkbox
