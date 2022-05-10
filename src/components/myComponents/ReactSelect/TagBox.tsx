@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 
 import CreatableSelect from 'react-select/creatable';
-import { TypeOption } from './docs/data';
+import { TypeOption } from '../docs/data';
 import { MultiValueGenericProps, OptionProps,SelectInstance } from 'react-select';
 import { components } from "react-select";
-import Icon from '../Iconify';
+import Icon from '../../Iconify';
 import { Container,Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 

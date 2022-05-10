@@ -7,8 +7,10 @@ import {
 } from '@mui/material';
 // components
 import Page from '../components/Page';
-import TagBox from '../components/myComponents/TagBox.tsx';
+// import TagBox from '../components/myComponents/ReactSelect/TagBox.tsx';
 import DropdownInput from '../components/myComponents/semanticUi/Dropdown/DropdownInput';
+import MaterialUiSelect from '../components/myComponents/MaterialUiSelect/MaterialUiSelect';
+import MaterialUiCheck from '../components/myComponents/MaterialUiCheck/MaterialUiCheck';
 // ----------------------------------------------------------------------
 
 
@@ -23,9 +25,14 @@ export default function Gorilla() {
           </Typography>
         </Stack>
         <Grid container spacing = {3} my={1}>
+          
           <Grid item xs={12} md={6}>
-            <TagBox/>
+              <MaterialUiCheck/>
+              <MaterialUiSelect/>
           </Grid>
+          {/* <Grid item xs={12} md={6}>
+            <TagBox/>
+          </Grid> */}
           <Grid item xs={12} md={6}>
               <DropdownInput/>
           </Grid>

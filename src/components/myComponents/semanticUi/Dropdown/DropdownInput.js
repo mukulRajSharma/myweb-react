@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import React, { Component } from 'react'
 import { Dropdown,Input,Button, Icon } from 'semantic-ui-react'
 
@@ -51,7 +52,6 @@ class DropdownInput extends Component {
         continue;
       }
       else{
-        console.log("ELSE")
         current = current.concat(this.state.currentValues[i])
         display = current.concat(this.state.currentValues[i].text)
         console.log(display)
@@ -65,7 +65,9 @@ class DropdownInput extends Component {
 
   render() {
     return (
-      <div style={{background: "#FFF", borderColor:"red", padding: '5px'}}>
+      <div style={{ padding:"2px"}}>
+        <Typography>Previous approach (Sematic-ui):</Typography>
+        <br></br>
         <Dropdown
         className='style'
         selection
@@ -79,6 +81,7 @@ class DropdownInput extends Component {
         onAddItem={this.handleAddition}
         value={this.state.displayValues}
         onLabelClick={this.deleteLabel}
+        placeholder="Search"
         >
           <Dropdown.Menu>
             <Dropdown.Menu scrolling>
@@ -97,7 +100,7 @@ class DropdownInput extends Component {
                 ))}
             </Dropdown.Menu>
             <Dropdown.Divider />
-              <Input className='create' placeholder="Create New"/>            
+            <Input id="input_key" placeholder="Create New"/>
           </Dropdown.Menu>
         </Dropdown>
       </div>
