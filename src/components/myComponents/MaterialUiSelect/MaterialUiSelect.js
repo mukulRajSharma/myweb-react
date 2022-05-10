@@ -10,7 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import { Button, Divider, Input, Typography } from '@mui/material';
+import { Button, Divider, Input, Typography,Grid } from '@mui/material';
 import Icon from '../../Iconify';
 
 const ITEM_HEIGHT = 48;
@@ -20,7 +20,7 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
+    //   width: 250,
     },
   },
 };
@@ -88,8 +88,9 @@ export default function MultipleSelect() {
   }
 
   return (
-    <div style={{'borderColor':'red', 'borderWidth':'5px'}}>
-      <FormControl sx={{ m: 1, width: 500 }}>
+      <Grid width={'100%'}>
+          <div>
+      <FormControl sx={{ m: 1, width: '100%' }}>
         <InputLabel>Search</InputLabel>
         <Select
           multiple
@@ -153,5 +154,7 @@ export default function MultipleSelect() {
       </div>
 
     </div>
+      </Grid>
+    
   );
 }
