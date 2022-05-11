@@ -3,7 +3,6 @@ import React, { useRef } from 'react'
 
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -20,7 +19,7 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-    //   width: 250,
+      width: '35%',
     },
   },
 };
@@ -82,46 +81,50 @@ export default function MultipleSelect() {
       }
   }
 
-  const handleDelete = (e) => {
-    //   console.log(e.value)
-      console.log(e.currentTarget.key)
+  function handleDelete (value) {
+      const newlist = personName.filter((item) => item !== value);
+      setPersonName(newlist);
+      setInputError(false);
   }
 
   return (
       <Grid width={'100%'}>
           <div>
       <FormControl sx={{ m: 1, width: '100%' }}>
-        <InputLabel>Search</InputLabel>
+        <InputLabel error={inputError} sx={{'marginTop':0.7,'marginLeft':-0.2, 'padding':0}}>Search</InputLabel>
         <Select
           multiple
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput label="Chip" error={inputError}/>}
+          input={<Input error={inputError} sx={{border: inputError?'1.5px solid red':'1.5px solid lightgrey', borderRadius: '2px', 'margin':0, padding:0}} disableUnderline/>}
           renderValue={(selected) => {
-              if (selected.length>4){
+              if (selected.length>3){
                   return(
                     <div>
-                        <Chip icon={<LocalOfferIcon sx={{'fill':'white'}}/>} key="Tags" label="TAGS" onDelete={()=>{}} sx={{'color':'white', 'background':'#6C757D'}}/>
-                        <Chip key="randomTag" label="4+" sx={{'color':'white', 'background':'#6C757D', marginLeft:'5px'}}/>
+                        <Chip icon={<LocalOfferIcon sx={{'fill':'white'}}/>} key={selected[0]} label={selected[0]} sx={{'color':'white', 'background':'#6C757D', 'marginLeft':0.5}}/>
+                        <Chip key="randomTag" label={<span>{selected.length-1}+</span>} sx={{'color':'white', 'background':'#6C757D', marginLeft:'5px'}}/>
                     </div>
                   )
               }
               return(
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (
-                <Chip icon={<LocalOfferIcon sx={{'fill':'white'}}/>} key={value} label={value} sx={{'color':'white', 'background':'#6C757D'}}/>
-                // <Button/>
+                <Chip icon={<LocalOfferIcon sx={{'fill':'white'}}/>} key={value} label={value} sx={{'color':'white', 'background':'#6C757D', 'marginLeft':0.5}}/>
               ))}
             </Box>
           )}}
           MenuProps={MenuProps}
+          rows={1}
         >
             <div style={{'marginLeft':'4%'}}>
             {personName.map((value) => (
-                <Chip icon={<LocalOfferIcon sx={{'fill':'white'}}/>} key={value} label={value} onDelete={handleDelete} sx={{'margin':'5px','color': 'white', 'background':'#6C757D'}}/>
+                <Chip icon={<LocalOfferIcon sx={{'fill':'white'}}/>} key={value} label={value} onDelete={()=>{handleDelete(value)}} sx={{'margin':'5px','color': 'white', 'background':'#6C757D'}}/>
               ))}
               <br></br>
-              <Button onClick={()=>{setPersonName([])}}>Unselect All</Button>
+              <Button onClick={()=>{
+                setPersonName([])
+                setInputError(false)
+                }}>Unselect All</Button>
             </div>
             
             <Divider sx={{'width': '90%', 'marginLeft': '5%', 'marginTop':'5px', 'marginBottom':'5px'}}/>

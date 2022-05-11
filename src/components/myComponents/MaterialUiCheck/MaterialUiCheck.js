@@ -57,8 +57,8 @@ export default function MultipleSelect() {
                     label="Delete on arrow click"
                     control={
                         <Checkbox
-                        checked={false}
-                        color="error"
+                        checked={true}
+                        color="success"
                         />
                     }
                 />
