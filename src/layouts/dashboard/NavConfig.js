@@ -37,9 +37,9 @@ const navConfig = [
   //   icon: getIcon('eva:person-add-fill'),
   // },
   {
-    title: 'gorilla',
-    path: '/dashboard/gorilla',
-    icon: <Iconify icon="noto:gorilla" width={22} height={22} color="white" hFlip={true} />,
+    title: 'Sandbox',
+    path: '/dashboard/sandbox',
+    icon: getIcon('bx:code-alt'),
   },
   {
     title: 'Not found',

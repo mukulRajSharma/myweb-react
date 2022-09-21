@@ -10,7 +10,7 @@ import NotFound from './pages/Page404';
 // import Register from './pages/Register';
 import Products from './pages/Products';
 import About from './pages/About';
-import Gorilla from './pages/Gorilla';
+import Sandbox from './pages/Sandbox';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -23,7 +23,7 @@ export default function Router() {
         { path: 'education', element: <Education /> },
         { path: 'work', element: <Products /> },
         { path: 'blog', element: <Blog /> },
-        { path: 'Gorilla', element: <Gorilla />}
+        { path: 'Sandbox', element: <Sandbox />}
       ],
     },
     {

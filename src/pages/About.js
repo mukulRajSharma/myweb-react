@@ -28,7 +28,7 @@ export default function About() {
     <Page title="About">
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Hi, Welcome back
+          Hi, Welcome
         </Typography>
         
         <Typewriter

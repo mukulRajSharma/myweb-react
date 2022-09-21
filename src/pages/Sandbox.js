@@ -14,14 +14,14 @@ import MaterialUiCheck from '../components/myComponents/MaterialUiCheck/Material
 // ----------------------------------------------------------------------
 
 
-export default function Gorilla() {
+export default function Sandbox() {
 
   return (
     <Page title="Education">
       <Container spacing={10}>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Gorilla
+            Sandbox
           </Typography>
         </Stack>
         <Grid container spacing = {3} my={1}>

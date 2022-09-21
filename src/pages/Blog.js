@@ -35,7 +35,11 @@ export default function Blog() {
           <BlogPostsSearch posts={POSTS} />
           <BlogPostsSort options={SORT_OPTIONS} />
         </Stack>
-
+        <Grid>
+          <stripe-pricing-table pricing-table-id="prctbl_1LkQ1HAFz3342zZmoekkRzU7"
+          publishable-key="pk_live_51KOmOBAFz3342zZm7dcmFUSSB2sJpjfrms2DwzypejhmCTmaVXf9UjpJqMO1vFhVehDpLg473XnwY0OY2E3DWN1600NcjK21dv">
+          </stripe-pricing-table>
+        </Grid>
         <Grid container spacing={3}>
           {POSTS.map((post, index) => (
             <BlogPostCard key={post.id} post={post} index={index} />
