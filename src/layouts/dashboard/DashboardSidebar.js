@@ -102,7 +102,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
               From only $69
             </Typography>
           </Box> */}
-          <Button href="https://buy.stripe.com/28o2bn0fE6l4cNi5kk" target="_blank" variant="contained">
+          <Button href="https://buy.stripe.com/bIY6rDfay38S4gMeUV" target="_blank" variant="contained">
             Buy me <Iconify icon={'la:beer'} width={24} height={24} />
           </Button>
         </Stack>
